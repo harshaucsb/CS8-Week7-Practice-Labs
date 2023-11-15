@@ -60,5 +60,9 @@ if __name__ == "__main__":
     assert get_dictionary_value({'a': 1, 'b': 2, 'c': 3}, 'd') == 'The available options are - a, b, c'
 
     assert modify_list([1, 2, 3, 4, 5]) == [1, 3, 5, 7, 9]
+    assert modify_list([1]) == [1]
     assert modify_list(['hello', 10]) == 'List contains type that is not an integer at position 0'
     assert modify_list([]) == -1
+    assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
+    assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+
