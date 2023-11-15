@@ -35,7 +35,7 @@ current_fun_names = []
 
 fun_names_dict = {
     'get_dictionary_value': 'get_dictionary_value',
-    'modify_list': 'modify_list'
+    'modify_list': 'modify_list',
 }
 
 required_files = ['main.py', 'functions.py', 'tests.py'] # TODO: add ALL required files

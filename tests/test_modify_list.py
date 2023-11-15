@@ -4,9 +4,12 @@ from BaseClass import BaseClass
 
 # TODO: create test parameters
 test_params = [
-    ([]),
     ([1, 2, 3, 4, 5]),
-    (['hi']),
+    ([1]),
+    (['hello', 10]),
+    ([]),
+    ([0.1, 'Kelly', 'h']),
+    ([1, 2, 3.5, 4, 5]),
 ]
 
 
