@@ -52,6 +52,25 @@ def get_maximum_odd(values):
                 max_odd = val
     return max_odd
 
+def modify_list(num_list):
+    """
+    modify_list() takes a list (num_list).
+    The function modifies the list of numbers by adding their position value to the corresponding value in the list.
+    For example: If the list is [1, 2, 3, 4, 5] the function should return the modified list with the values [1, 3, 5, 7, 9]
+    If num_list contains a value that isn't an integer, then return the statement 'List contains type that is not an integer at position {pos}'
+    where pos is first instance of the other type
+    If num_list is empty, return -1
+    Note: Please refer to Zybooks 7.7 for more information on modifying lists.
+    """
+    if len(num_list) == 0:
+        return -1
+    for i in range(len(num_list)):
+        if type(num_list[i]) is int:
+            num_list[i] += i
+        else:
+            return f'List contains type that is not an integer at position {i}'
+    return num_list
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -61,3 +80,9 @@ if __name__ == "__main__":
     assert get_maximum_odd([7, 40, 33, 56, 98]) == 33
     assert get_maximum_odd([2, 22, 10, 56, 90]) == -99
     assert get_maximum_odd([]) == -1
+    assert modify_list([1, 2, 3, 4, 5]) == [1, 3, 5, 7, 9]
+    assert modify_list([1]) == [1]
+    assert modify_list(['hello', 10]) == 'List contains type that is not an integer at position 0'
+    assert modify_list([]) == -1
+    assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
+    assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
