@@ -35,6 +35,8 @@ current_fun_names = []
 
 fun_names_dict = {
     'get_dictionary_value': 'get_dictionary_value',
+    'remove_dictionary_item': 'remove_dictionary_item',
+    'update_dictionary_values': 'update_dictionary_values',
     'get_maximum_odd': 'get_maximum_odd',
     'modify_list': 'modify_list',
 }
@@ -63,6 +65,8 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_dictionary_values.py",
               "test_maximum_odd.py",
               "test_modify_list.py",
+              "test_dictionary_remove.py",
+              "test_dictionary_update.py"
               ]
 # TODO: update the above depending on the names of the test files.
 ################################
