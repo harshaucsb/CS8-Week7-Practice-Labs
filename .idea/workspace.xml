@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d1b7d43-c59f-42c5-ae94-d0054826120c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/sum_of_diagonal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CS8-Week7-Practice-Labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS8-Week7-Practice-Labs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/correct.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,14 +26,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2YC06FsLsMIemf4U15FZXwK7dcA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,12 +49,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Eshas__branch",
-    "last_opened_file_path": "/Users/eshagupta/Documents/GitHub/CS8-Week7-Practice-Labs",
+    "git-widget-placeholder": "7.5-list-nesting-Zifeng-Zhang",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/CS8-Week7-Practice-Labs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -73,6 +85,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.correct" />
+        <item itemvalue="Python.correct" />
+        <item itemvalue="Python.correct" />
       </list>
     </recent_temporary>
   </component>
@@ -85,8 +99,12 @@
       <option name="presentableId" value="Default" />
       <updated>1700014077176</updated>
       <workItem from="1700014078339" duration="4365000" />
+      <workItem from="1700175136023" duration="260000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

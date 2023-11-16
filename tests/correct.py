@@ -71,6 +71,34 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+
+def sum_of_diagonal(matrix):
+    """
+    The function should take a 2D list (matrix) as input, where each sublist represents a row of the matrix.
+    The output should be a number of the sum of the primary (top-left to bottom-right) diagonal.
+    Assume the matrix is square (the number of rows and columns is the same).
+    If the input matrix is empty, the function should return -1.
+
+    For example, if the input matrix is:
+    matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
+
+    The primary diagonals is 1+5+9 = 15, so the result output should be 15.
+    """
+    if not matrix or not matrix[0]:  # Check if the matrix is empty
+        return -1
+
+    primary_diagonal_sum = 0
+    n = len(matrix)  # Size of the matrix
+
+    for i in range(n):
+        primary_diagonal_sum += matrix[i][i]  # Sum elements from top-left to bottom-right
+
+    return primary_diagonal_sum
+
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -86,3 +114,6 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    assert sum_of_diagonal([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == 15, "Test failed for a non-empty matrix"
+    assert sum_of_diagonal([]) == -1, "Test failed for an empty matrix"
+    assert sum_of_diagonal([[5]]) == 5, "Test failed for a single element matrix"
