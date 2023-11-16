@@ -71,6 +71,24 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+def sort_by_length(str_list): # Based on 7.9
+    """
+    sort_by_length() takes a list of strings (str_list).
+    The function then checks if the list is empty; if yes, it returns -2.
+    If the list is not empty, the function returns a copy of str_list that is sorted by the length of its contained strings.
+    For example, If the list is ["Apple", "Pie", "Computer", "I"] the function should return the sorted list with
+    the values ["I", "Pie", "Apple", "Computer"].
+    If str_list contains a value that isn't a string, then return the statement 'List contains a type that is not a string!'
+    Note: Please refer to Zybooks 7.9 for more information on sorting lists.
+    """
+    if len(str_list) == 0:
+        return -2
+    for val in str_list:
+        if type(val) != str:
+            return "List contains a type that is not a string!"
+    return sorted(str_list, key=len)
+    
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -86,3 +104,7 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    assert sort_by_length([]) == -2
+    assert sort_by_length(["Apple", "Pie", "Computer", "I"]) == ["I", "Pie", "Apple", "Computer"]
+    assert sort_by_length(["Invalid", 123]) == "List contains a type that is not a string!"
+    assert sort_by_length(["0", "Abraham", "Logs", "Pineapple"]) == ["0", "Logs", "Abraham", "Pineapple"]
