@@ -15,7 +15,7 @@ max_score = len(test_params)
 function_name = "calculate_average_scores" # TODO
 
 # TODO:  name the class according to the function name being tested
-class GetDictionaryValue_Test(BaseClass):
+class CalculateAverageScores_Test(BaseClass):
     @partial_credit(max_score)
     @visibility('visible')
     def test1(self, set_score=None):
