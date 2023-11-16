@@ -32,6 +32,26 @@ def get_dictionary_value(options, option):
             return_str += key + ', '
         return return_str[:-2]
 
+def get_maximum_odd(values):
+    """
+    get_maximum_odds() takes a list (values) of  postive integers and returns
+    the largest odd integer in that list.  The function checks if the
+    list is empty and if yes, returns -1.  If the list is not empty, the function
+    iterates through the list and determines the largest odd number in the list.  If there are no odd integers
+    in the list then the function returns -99.  If the list is [7, 40, 33, 56, 98], then the function returns the integer 33.
+    If the function is called with an empty list, the function returns -1.
+    Make sure to have different assert statements to test the function than the
+    ones provided above.  Note: Please refer to Zybooks 7.3 for more information on Iterating through a list.
+    """
+    if len(values) == 0:
+        return -1
+    max_odd = -99
+    for val in values:
+        if val % 2 == 1:
+            if val > max_odd:
+                max_odd = val
+    return max_odd
+
 def modify_list(num_list):
     """
     modify_list() takes a list (num_list).
@@ -51,18 +71,18 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
-
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
     assert get_dictionary_value({}, 'a') == -1
     assert get_dictionary_value({'a': 1, 'b': 2, 'c': 3}, 'b') == 2
     assert get_dictionary_value({'a': 1, 'b': 2, 'c': 3}, 'd') == 'The available options are - a, b, c'
-
+    assert get_maximum_odd([7, 40, 33, 56, 98]) == 33
+    assert get_maximum_odd([2, 22, 10, 56, 90]) == -99
+    assert get_maximum_odd([]) == -1
     assert modify_list([1, 2, 3, 4, 5]) == [1, 3, 5, 7, 9]
     assert modify_list([1]) == [1]
     assert modify_list(['hello', 10]) == 'List contains type that is not an integer at position 0'
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
-

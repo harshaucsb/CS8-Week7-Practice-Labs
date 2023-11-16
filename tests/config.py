@@ -35,6 +35,7 @@ current_fun_names = []
 
 fun_names_dict = {
     'get_dictionary_value': 'get_dictionary_value',
+    'get_maximum_odd': 'get_maximum_odd',
     'modify_list': 'modify_list',
 }
 
@@ -60,6 +61,7 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_A_files.py",
               "test_B_fun_names.py",
               "test_dictionary_values.py",
+              "test_maximum_odd.py",
               "test_modify_list.py",
               ]
 # TODO: update the above depending on the names of the test files.
