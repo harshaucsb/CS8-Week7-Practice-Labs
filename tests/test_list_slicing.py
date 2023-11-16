@@ -17,7 +17,7 @@ max_score = len(test_params)
 function_name = "slice_list" # TODO
 
 # TODO:  name the class according to the function name being tested
-class GetDictionaryValue_Test(BaseClass):
+class SliceDictionary_Test(BaseClass):
     @partial_credit(max_score)
     @visibility('visible')
     def test1(self, set_score=None):
