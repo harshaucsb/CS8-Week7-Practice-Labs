@@ -35,6 +35,7 @@ current_fun_names = []
 
 fun_names_dict = {
     'get_dictionary_value': 'get_dictionary_value',
+    'get_maximum_odd': 'get_maximum_odd',
 }
 
 required_files = ['main.py', 'functions.py', 'tests.py'] # TODO: add ALL required files
@@ -59,6 +60,7 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_A_files.py",
               "test_B_fun_names.py",
               "test_dictionary_values.py",
+              "test_maximum_odd.py",
               ]
 # TODO: update the above depending on the names of the test files.
 ################################
