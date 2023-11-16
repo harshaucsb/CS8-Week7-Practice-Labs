@@ -98,6 +98,27 @@ def slice_list(num_list, start, slice_length):
         return -1
     return num_list[start:end]
 
+def calculate_average_scores(score_dict):
+    """
+    calculate_average_scores() takes a dictionary (score_dict) as input.
+    The function calculates the average score of each students and output a dictionary in the format of 
+    {student_name1: average_score1, student_name2: average_score2,...}
+    If the score_dict is empty, function returns -1.
+    If any of the keys is not of the string type, function eturn -2.
+    For example: If the score_dict is {'Andrew': [10, 10, 10, 10, 10], 'Alan': [10, 20, 5, 10, 10]}, the function should
+    calculate each student's average score and return a new dictionary {'Andrew': 10, 'Alan': 11}
+    Note: Please refer to Zybooks 7.12.1 for more information on this function.
+    """
+    if score_dict == {}:
+        return -1
+    calculated_average = {}
+    for key, value in score_dict.items():
+        if type(key) != str:
+            return -2
+        average_score = sum(value) / len(value)
+        calculated_average[key] = average_score
+    return calculated_average
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -119,3 +140,6 @@ if __name__ == "__main__":
     assert slice_list([1, 2, 3, 4, 5], -1, 2) == -1
     assert slice_list([1, 2, 3, 4, 5], 2, -1) == -1
     assert slice_list([1, 2, 3, 4, 5], 3, 3) == -1
+    assert calculate_average_scores({}) == -1
+    assert calculate_average_scores({"Alan": [95, 88, 92, 85, 85]}) == {"Alan": 89}
+    assert calculate_average_scores({3: [95, 88, 92, 85, 85]}) == -2

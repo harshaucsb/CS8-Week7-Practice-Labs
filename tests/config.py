@@ -38,6 +38,7 @@ fun_names_dict = {
     'get_maximum_odd': 'get_maximum_odd',
     'modify_list': 'modify_list',
     'slice_list': 'slice_list',
+    'calculate_average_scores': 'calculate_average_scores'
 }
 
 required_files = ['main.py', 'functions.py', 'tests.py'] # TODO: add ALL required files
@@ -65,6 +66,7 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_maximum_odd.py",
               "test_modify_list.py",
               "test_list_slicing.py",
+              "test_calculate_average_scores.py",
               ]
 # TODO: update the above depending on the names of the test files.
 ################################
