@@ -71,6 +71,50 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+def calculate_class_midterm_average(grades_dict):
+    """
+    Given a dictionary of student grades, this function calculates the class' 
+    average score on the midterm.
+
+    For example if the grades_dict is 
+    {
+        'John Ponting': {
+            'Midterm': 80,
+            'Final': 92
+        },
+        'Jacques Kallis': {
+            'Midterm': 90,
+            'Final': 75
+        },
+        'Ricky Bobby': {
+            'Midterm': 40,
+            'Final': 65
+        }
+    }
+    the function should return (80 + 90 + 40) / 3 = 70
+
+    If the grades_dict is empty, the function returns -1.
+    If any of the keys is not of the string type, the function returns -2.
+
+    Note: Please refer to Zybooks 7.13 for more information on dictionary nesting.
+
+    Params:
+    grades_dict (dict): dictionary of student grades.
+
+    Returns:
+    float: the class' average score on the midterm
+    """
+    if grades_dict == {}:
+        return -1
+    
+    midterm_scores = []
+    for student, grades in grades_dict.items():
+        if type(student) != str:
+            return -2
+        midterm_scores.append(grades['Midterm'])
+    avg_midterm_score = sum(midterm_scores) / len(midterm_scores)
+    return avg_midterm_score
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -86,3 +130,9 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    
+    assert calculate_class_midterm_average({}) == -1
+    grades = {"John": {"Midterm": 80, "Final": 70}, "Lucie": {"Midterm": 90, "Final": 100}}
+    assert calculate_class_midterm_average(grades) == 85
+    assert calculate_class_midterm_average({"John": {"Midterm": 80, "Final": 70}}) == 80
+    assert calculate_class_midterm_average({123: {"Midterm": 80, "Final": 70}}) == -2
