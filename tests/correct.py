@@ -71,6 +71,54 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+def slice_list(num_list, start, slice_length):
+    """
+    slice_list() takes a list (num_list), an nonnegative integer (starting position), and another nonnegative integer (slice length)
+    The functions returns the sliced list by starting from `start` with length of `slice_length`, stride equals to 1.
+    Assume `start` and `slice_length` are integers, and `num_list` as list.
+
+    For example: If num_list = [1, 2, 3, 4, 5], start = 3, length = 2, return value is [4, 5]
+                 If num_list = [1, 2, 3, 4, 5], start = 3, length = 0, return value is []
+
+    If `num_list` is empty, return -1
+    If `start` is negative or out of bound, return -1
+    If slicing using `slice_length` is out of bound, return -1
+    For example: If num_list = [1, 2, 3, 4, 5], start = -6, length = 2, return value is -1.
+                 If num_list = [1, 2, 3, 4, 5], start = 2, length = -2, return value is -1.
+                 If num_list = [1, 2, 3, 4, 5], start = 3, length = 3, return value is -1.
+
+    Note: Please refer to Zybooks 7.6 for more information on slicing lists.
+    """
+    if len(num_list) == 0:
+        return -1
+    if start < 0 or slice_length < 0:
+        return -1
+    end = start + slice_length
+    if end > len(num_list):
+        return -1
+    return num_list[start:end]
+
+def calculate_average_scores(score_dict):
+    """
+    calculate_average_scores() takes a dictionary (score_dict) as input.
+    The function calculates the average score of each students and output a dictionary in the format of 
+    {student_name1: average_score1, student_name2: average_score2,...}
+    If the score_dict is empty, function returns -1.
+    If any of the keys is not of the string type, function eturn -2.
+    For example: If the score_dict is {'Andrew': [10, 10, 10, 10, 10], 'Alan': [10, 20, 5, 10, 10]}, the function should
+    calculate each student's average score and return a new dictionary {'Andrew': 10, 'Alan': 11}
+    Note: Please refer to Zybooks 7.12.1 for more information on this function.
+    """
+    if score_dict == {}:
+        return -1
+    calculated_average = {}
+    for key, value in score_dict.items():
+        if type(key) != str:
+            return -2
+        average_score = sum(value) / len(value)
+        calculated_average[key] = average_score
+    return calculated_average
+
 def calculate_class_midterm_average(grades_dict):
     """
     Given a dictionary of student grades, this function calculates the class' 
@@ -115,6 +163,7 @@ def calculate_class_midterm_average(grades_dict):
     avg_midterm_score = sum(midterm_scores) / len(midterm_scores)
     return avg_midterm_score
 
+  
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -130,7 +179,15 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
-    
+    assert slice_list([1, 2, 3, 4, 5], 3, 2) == [4,5]
+    assert slice_list([1, 2, 3, 4, 5], 3, 0) == []
+    assert slice_list([], -6, 2) == -1
+    assert slice_list([1, 2, 3, 4, 5], -1, 2) == -1
+    assert slice_list([1, 2, 3, 4, 5], 2, -1) == -1
+    assert slice_list([1, 2, 3, 4, 5], 3, 3) == -1
+    assert calculate_average_scores({}) == -1
+    assert calculate_average_scores({"Alan": [95, 88, 92, 85, 85]}) == {"Alan": 89}
+    assert calculate_average_scores({3: [95, 88, 92, 85, 85]}) == -2
     assert calculate_class_midterm_average({}) == -1
     grades = {"John": {"Midterm": 80, "Final": 70}, "Lucie": {"Midterm": 90, "Final": 100}}
     assert calculate_class_midterm_average(grades) == 85
