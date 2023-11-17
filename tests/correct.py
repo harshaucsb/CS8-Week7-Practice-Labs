@@ -108,3 +108,4 @@ if __name__ == "__main__":
     assert sort_by_length(["Apple", "Pie", "Computer", "I"]) == ["I", "Pie", "Apple", "Computer"]
     assert sort_by_length(["Invalid", 123]) == "List contains a type that is not a string!"
     assert sort_by_length(["0", "Abraham", "Logs", "Pineapple"]) == ["0", "Logs", "Abraham", "Pineapple"]
+    assert sort_by_length(["A", ""]) == ["", "A"]
