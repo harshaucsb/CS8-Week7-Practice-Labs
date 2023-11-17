@@ -32,43 +32,30 @@ def get_dictionary_value(options, option):
             return_str += key + ', '
         return return_str[:-2]
 
-def remove_dictionary_item(dict, key):
+def remove_dictionary_items(dict):
     """
-    remove_dictionary_item() takes a dictionary (dict) and a key as inputs.
-    The function check if the dictionary is empty and if yes,
+    remove_dictionary_items() takes a dictionary (dict) as input and removes
+    any items where the values are not valid phone numbers. A valid phone number
+    is defined as a string of 10 digits with no other characters.
+    The function first check if the dictionary is empty and if yes,
     returns -1. If the dictionary is not empty, now the function checks for
-    the existence of the key in the dict and if exists, removes the item from
-    the dict and returns the new updated dictionary. Otherwise, returns the dict.
-    For example: If dict is {'a': 1, 'b': 2, 'c': 3} and key is 'b',
-    the function returns {'a': 1, 'c': 3}. If key is 'd', the function returns
-    {'a': 1, 'b': 2, 'c': 3}. If the function is called with an empty dictionary,
-    the function returns -1. Make sure to have different assert statements to test the function
+    the items with invalid phone number format and removes them from
+    the dict and returns the new updated dictionary. If there is no invalid value, returns the dict.
+    Examples:
+    - If dict is {'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'},
+      the function returns {'John': '0123456789', 'Jane': '1234567890'}.
+    - If dict is {'Support': '1AF567^901', 'Service': '0123456789'},
+      the function returns {'Service': '0123456789'}.
+    Make sure to have different assert statements to test the function
     than the ones provided above. Note: Please refer to Zybooks 7.11 for more information on dictionaries.
     """
     if len(dict) == 0:
         return -1
-    elif key in dict:
+    keys_to_remove = [key for key, value in dict.items() if
+                      not (isinstance(value, str) and value.isdigit() and len(value) == 10)]
+    for key in keys_to_remove:
         dict.pop(key)
     return dict
-
-
-def update_dictionary_values(orig_dict, new_dict):
-    """
-    update_dictionary_values() takes original dictionary (orig_dict) and new dictionary (new_dict) as inputs.
-    The function check if the orig_dict is empty and if yes,
-    returns new_dict. If the dictionary is not empty, now the function updates orig_dict with new_dict.
-    Existing entries in orig_dict are overwritten if the same keys exist in new_dict.
-    For example: If orig_dict is {'a': 1, 'b': 2} and new_dict is { 'b': 9, 'c': 3},
-    the function returns {'a': 1, 'b': 9, 'c': 3} . If orig_dict is {} and new_dict is { 'b': 9, 'c': 3},
-    the function returns {'b': 9, 'c': 3} .
-    Make sure to have different assert statements to test the function
-    than the ones provided above. Note: Please refer to Zybooks 7.11 for more information on dictionaries.
-    """
-    if len(orig_dict) == 0:
-        return new_dict
-    orig_dict.update(new_dict)
-    return orig_dict
-
 
 
 def get_maximum_odd(values):
@@ -127,8 +114,10 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
-    assert remove_dictionary_item({}, 'a') == -1
-    assert remove_dictionary_item({'x': 24, 'y': 25}, 'x') == {'y': 25}
-    assert remove_dictionary_item({'a': 1, 'b': 2, 'c': 3}, 'd') == {'a': 1, 'b': 2, 'c': 3}
-    assert update_dictionary_values({'a': 1, 'b': 2}, {'b': 9, 'c': 3}) == {'a': 1, 'b': 9, 'c': 3}
-    assert update_dictionary_values({}, {'b': 9, 'c': 3}) == {'b': 9, 'c': 3}
+    assert remove_dictionary_items({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}) == {
+        'John': '0123456789', 'Jane': '1234567890'}
+    assert remove_dictionary_items({'Support': '1AF567^901', 'Service': '0123456789'}) == {
+        'Service': '0123456789'}
+    assert remove_dictionary_items({'a': 1234567890, 'b': '1234567890'}) == {'b': '1234567890'}
+    assert remove_dictionary_items({}) == -1
+
