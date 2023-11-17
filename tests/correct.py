@@ -74,10 +74,9 @@ def modify_list(num_list):
 
 def sum_of_diagonal(matrix):
     """
-    The function should take a 2D list (matrix) as input, where each sublist represents a row of the matrix.
-    The output should be a number of the sum of the primary (top-left to bottom-right) diagonal.
-    Assume the matrix is square (the number of rows and columns is the same).
-    If the input matrix is empty, the function should return -1.
+    The function takes a 2D list (matrix) as input, where each sublist represents a row of the matrix.
+    It returns the sum of the primary (top-left to bottom-right) diagonal if the matrix is square.
+    If the matrix is not square or empty, the function returns -2 or -1, respectively.
 
     For example, if the input matrix is:
     matrix = [
@@ -90,13 +89,20 @@ def sum_of_diagonal(matrix):
     if not matrix or not matrix[0]:  # Check if the matrix is empty
         return -1
 
+    n = len(matrix)  # Number of rows in the matrix
+
+    # Check if the matrix is square
+    for row in matrix:
+        if len(row) != n:
+            return -2  # Not a square matrix
+
     primary_diagonal_sum = 0
-    n = len(matrix)  # Size of the matrix
 
     for i in range(n):
         primary_diagonal_sum += matrix[i][i]  # Sum elements from top-left to bottom-right
 
     return primary_diagonal_sum
+
 
 
 if __name__ == "__main__":
@@ -114,6 +120,8 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
-    assert sum_of_diagonal([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == 15, "Test failed for a non-empty matrix"
-    assert sum_of_diagonal([]) == -1, "Test failed for an empty matrix"
-    assert sum_of_diagonal([[5]]) == 5, "Test failed for a single element matrix"
+
+
+    assert sum_of_diagonal([[]]) == -1, "Test with an empty matrix failed"
+    assert sum_of_diagonal([[1, 2], [3, 4], [5, 6]]) == -2, "Test with a non-square matrix (more rows) failed"
+    assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing negative numbers failed"
