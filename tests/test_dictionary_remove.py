@@ -4,22 +4,23 @@ from BaseClass import BaseClass
 
 # TODO: create test parameters
 test_params = [
-    ({}, 'x'),
-    ({'x': 24, 'y': 25}, 'x'),
-    ({'fruit': 'apple', 'amount': 5}, 'price'),
+    ({}),
+    ({'a': 1234567890, 'b': '1234567890'}),
+    ({'Support': '1AF567^901', 'Service': '0123456789'}),
+    ({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}),
 ]
 
 
 max_score = len(test_params)
 
-function_name = "remove_dictionary_item" # TODO
+function_name = "remove_dictionary_items" # TODO
 
 # TODO:  name the class according to the function name being tested
 class RemoveDictionaryValue_Test(BaseClass):
     @partial_credit(max_score)
     @visibility('visible')
     def test1(self, set_score=None):
-        """remove_dictionary_item(dict, key)""" # TODO
+        """remove_dictionary_items(dict, key)""" # TODO
 
         student_module = self.student_functions
         total_score = max_score
