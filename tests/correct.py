@@ -32,6 +32,32 @@ def get_dictionary_value(options, option):
             return_str += key + ', '
         return return_str[:-2]
 
+def remove_dictionary_items(dict):
+    """
+    remove_dictionary_items() takes a dictionary (dict) as input and removes
+    any items where the values are not valid phone numbers. A valid phone number
+    is defined as a string of 10 digits with no other characters.
+    The function first check if the dictionary is empty and if yes,
+    returns -1. If the dictionary is not empty, now the function checks for
+    the items with invalid phone number format and removes them from
+    the dict and returns the new updated dictionary. If there is no invalid value, returns the dict.
+    Examples:
+    - If dict is {'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'},
+      the function returns {'John': '0123456789', 'Jane': '1234567890'}.
+    - If dict is {'Support': '1AF567^901', 'Service': '0123456789'},
+      the function returns {'Service': '0123456789'}.
+    Make sure to have different assert statements to test the function
+    than the ones provided above. Note: Please refer to Zybooks 7.11 for more information on dictionaries.
+    """
+    if len(dict) == 0:
+        return -1
+    keys_to_remove = [key for key, value in dict.items() if
+                      not (isinstance(value, str) and value.isdigit() and len(value) == 10)]
+    for key in keys_to_remove:
+        dict.pop(key)
+    return dict
+
+
 def get_maximum_odd(values):
     """
     get_maximum_odds() takes a list (values) of  postive integers and returns
@@ -70,6 +96,78 @@ def modify_list(num_list):
         else:
             return f'List contains type that is not an integer at position {i}'
     return num_list
+
+def shift_list(my_list, direction, step):
+    """
+    Shifts the elements of a given list to the left or right by a specified number of steps.
+
+    Parameters:
+    my_list (list): The list whose elements are to be shifted. Return -1 if the list is empty
+    d (int): The direction of the shift (-1 for left, 1 for right). Return -2 if d is not -1 or 1
+    s (int): The number of steps to shift the elements. Return -3 if d is not an integer.
+
+    Returns:
+    list: A new list with the elements shifted in the specified direction by the specified number of steps.
+
+    Raises:
+    ValueError: If the direction is not -1 or 1.
+
+    Example:
+    >>> shift_list([1, 2, 3, 4, 5], 1, 2)
+    [4, 5, 1, 2, 3]
+    """
+    if not my_list:
+        return -1
+    if direction not in [-1, 1]:
+        return -2
+    if not isinstance(step, int):
+        return -3 
+    
+    if step == 0:
+        return my_list
+
+    n = len(my_list)
+    shifted_list = [None] * n
+    step = step % n
+
+    for i, element in enumerate(my_list):
+        if direction == -1:  # Shift left
+            shifted_list[i - step] = element
+        elif direction == 1:  # Shift right
+            shifted_list[(i + step) % n] = element
+        
+    return shifted_list
+
+def sum_of_diagonal(matrix):
+    """
+    The function takes a 2D list (matrix) as input, where each sublist represents a row of the matrix.
+    It returns the sum of the primary (top-left to bottom-right) diagonal if the matrix is square.
+    If the matrix is not square or empty, the function returns -2 or -1, respectively.
+
+    For example, if the input matrix is:
+    matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
+
+    The primary diagonals is 1+5+9 = 15, so the result output should be 15.
+    """
+    if not matrix or not matrix[0]:  # Check if the matrix is empty
+        return -1
+
+    n = len(matrix)  # Number of rows in the matrix
+
+    # Check if the matrix is square
+    for row in matrix:
+        if len(row) != n:
+            return -2  # Not a square matrix
+
+    primary_diagonal_sum = 0
+
+    for i in range(n):
+        primary_diagonal_sum += matrix[i][i]  # Sum elements from top-left to bottom-right
+
+    return primary_diagonal_sum
 
 def slice_list(num_list, start, slice_length):
     """
@@ -136,6 +234,50 @@ def sort_by_length(str_list): # Based on 7.9
             return "List contains a type that is not a string!"
     return sorted(str_list, key=len)
 
+def calculate_class_midterm_average(grades_dict):
+    """
+    Given a dictionary of student grades, this function calculates the class' 
+    average score on the midterm.
+
+    For example if the grades_dict is 
+    {
+        'John Ponting': {
+            'Midterm': 80,
+            'Final': 92
+        },
+        'Jacques Kallis': {
+            'Midterm': 90,
+            'Final': 75
+        },
+        'Ricky Bobby': {
+            'Midterm': 40,
+            'Final': 65
+        }
+    }
+    the function should return (80 + 90 + 40) / 3 = 70
+
+    If the grades_dict is empty, the function returns -1.
+    If any of the keys is not of the string type, the function returns -2.
+
+    Note: Please refer to Zybooks 7.13 for more information on dictionary nesting.
+
+    Params:
+    grades_dict (dict): dictionary of student grades.
+
+    Returns:
+    float: the class' average score on the midterm
+    """
+    if grades_dict == {}:
+        return -1
+    
+    midterm_scores = []
+    for student, grades in grades_dict.items():
+        if type(student) != str:
+            return -2
+        midterm_scores.append(grades['Midterm'])
+    avg_midterm_score = sum(midterm_scores) / len(midterm_scores)
+    return avg_midterm_score
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -145,12 +287,30 @@ if __name__ == "__main__":
     assert get_maximum_odd([7, 40, 33, 56, 98]) == 33
     assert get_maximum_odd([2, 22, 10, 56, 90]) == -99
     assert get_maximum_odd([]) == -1
+
     assert modify_list([1, 2, 3, 4, 5]) == [1, 3, 5, 7, 9]
     assert modify_list([1]) == [1]
     assert modify_list(['hello', 10]) == 'List contains type that is not an integer at position 0'
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    
+    assert shift_list([], 1, 5) == -1
+    assert shift_list(["Jason", 'Kelly', 'Tom'], 0, 1) == -2
+    assert shift_list([1, 2, 3.5, 4, 5], 1, 2.1) == -3
+    assert shift_list(["Jason", 'Kelly', 'Tom'], -1, 2) == ['Tom', "Jason", 'Kelly']
+    assert shift_list([1, 2, 3.5, 4, 5], 1, 2) == [4, 5, 1, 2, 3.5]
+    assert shift_list(["banana", "apple", "pineapple", "pear", "peach"], 1, 7) == ["pear", "peach", "banana", "apple", "pineapple"]
+
+    assert sum_of_diagonal([[]]) == -1, "Test with an empty matrix failed"
+    assert sum_of_diagonal([[1, 2], [3, 4], [5, 6]]) == -2, "Test with a non-square matrix (more rows) failed"
+    assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing
+    assert remove_dictionary_items({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}) == {
+        'John': '0123456789', 'Jane': '1234567890'}
+    assert remove_dictionary_items({'Support': '1AF567^901', 'Service': '0123456789'}) == {
+        'Service': '0123456789'}
+    assert remove_dictionary_items({'a': 1234567890, 'b': '1234567890'}) == {'b': '1234567890'}
+    assert remove_dictionary_items({}) == -1
     assert slice_list([1, 2, 3, 4, 5], 3, 2) == [4,5]
     assert slice_list([1, 2, 3, 4, 5], 3, 0) == []
     assert slice_list([], -6, 2) == -1
@@ -165,3 +325,8 @@ if __name__ == "__main__":
     assert sort_by_length(["Invalid", 123]) == "List contains a type that is not a string!"
     assert sort_by_length(["0", "Abraham", "Logs", "Pineapple"]) == ["0", "Logs", "Abraham", "Pineapple"]
     assert sort_by_length(["A", ""]) == ["", "A"]
+    assert calculate_class_midterm_average({}) == -1
+    grades = {"John": {"Midterm": 80, "Final": 70}, "Lucie": {"Midterm": 90, "Final": 100}}
+    assert calculate_class_midterm_average(grades) == 85
+    assert calculate_class_midterm_average({"John": {"Midterm": 80, "Final": 70}}) == 80
+    assert calculate_class_midterm_average({123: {"Midterm": 80, "Final": 70}}) == -2

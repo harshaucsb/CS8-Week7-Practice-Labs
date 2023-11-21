@@ -35,11 +35,15 @@ current_fun_names = []
 
 fun_names_dict = {
     'get_dictionary_value': 'get_dictionary_value',
+    'remove_dictionary_items': 'remove_dictionary_items',
     'get_maximum_odd': 'get_maximum_odd',
     'modify_list': 'modify_list',
+    'shift_list': 'shift_list',
+    'sum_of_diagonal': 'sum_of_diagonal',
     'slice_list': 'slice_list',
     'calculate_average_scores': 'calculate_average_scores',
     'sort_by_length': 'sort_by_length'
+    'calculate_class_midterm_average': 'calculate_class_midterm_average'
 }
 
 required_files = ['main.py', 'functions.py', 'tests.py'] # TODO: add ALL required files
@@ -66,9 +70,13 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_dictionary_values.py",
               "test_maximum_odd.py",
               "test_modify_list.py",
+              "test_shift_list.py"
+              "test_sum_of_diagonal.py",
+              "test_dictionary_remove.py"
               "test_list_slicing.py",
               "test_calculate_average_scores.py",
               "test_sort_by_length.py"
+              "test_calculate_class_midterm_average.py"
               ]
 # TODO: update the above depending on the names of the test files.
 ################################
