@@ -217,6 +217,23 @@ def calculate_average_scores(score_dict):
         calculated_average[key] = average_score
     return calculated_average
 
+def sort_by_length(str_list): # Based on 7.9
+    """
+    sort_by_length() takes a list of strings (str_list).
+    The function then checks if the list is empty; if yes, it returns -2.
+    If the list is not empty, the function returns a copy of str_list that is sorted by the length of its contained strings.
+    For example, If the list is ["Apple", "Pie", "Computer", "I"] the function should return the sorted list with
+    the values ["I", "Pie", "Apple", "Computer"].
+    If str_list contains a value that isn't a string, then return the statement 'List contains a type that is not a string!'
+    Note: Please refer to Zybooks 7.9 for more information on sorting lists.
+    """
+    if len(str_list) == 0:
+        return -2
+    for val in str_list:
+        if type(val) != str:
+            return "List contains a type that is not a string!"
+    return sorted(str_list, key=len)
+
 def calculate_class_midterm_average(grades_dict):
     """
     Given a dictionary of student grades, this function calculates the class' 
@@ -261,7 +278,6 @@ def calculate_class_midterm_average(grades_dict):
     avg_midterm_score = sum(midterm_scores) / len(midterm_scores)
     return avg_midterm_score
 
-
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -304,6 +320,11 @@ if __name__ == "__main__":
     assert calculate_average_scores({}) == -1
     assert calculate_average_scores({"Alan": [95, 88, 92, 85, 85]}) == {"Alan": 89}
     assert calculate_average_scores({3: [95, 88, 92, 85, 85]}) == -2
+    assert sort_by_length([]) == -2
+    assert sort_by_length(["Apple", "Pie", "Computer", "I"]) == ["I", "Pie", "Apple", "Computer"]
+    assert sort_by_length(["Invalid", 123]) == "List contains a type that is not a string!"
+    assert sort_by_length(["0", "Abraham", "Logs", "Pineapple"]) == ["0", "Logs", "Abraham", "Pineapple"]
+    assert sort_by_length(["A", ""]) == ["", "A"]
     assert calculate_class_midterm_average({}) == -1
     grades = {"John": {"Midterm": 80, "Final": 70}, "Lucie": {"Midterm": 90, "Final": 100}}
     assert calculate_class_midterm_average(grades) == 85
