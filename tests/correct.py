@@ -97,6 +97,37 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+def sum_of_diagonal(matrix):
+    """
+    The function takes a 2D list (matrix) as input, where each sublist represents a row of the matrix.
+    It returns the sum of the primary (top-left to bottom-right) diagonal if the matrix is square.
+    If the matrix is not square or empty, the function returns -2 or -1, respectively.
+
+    For example, if the input matrix is:
+    matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
+
+    The primary diagonals is 1+5+9 = 15, so the result output should be 15.
+    """
+    if not matrix or not matrix[0]:  # Check if the matrix is empty
+        return -1
+
+    n = len(matrix)  # Number of rows in the matrix
+
+    # Check if the matrix is square
+    for row in matrix:
+        if len(row) != n:
+            return -2  # Not a square matrix
+
+    primary_diagonal_sum = 0
+
+    for i in range(n):
+        primary_diagonal_sum += matrix[i][i]  # Sum elements from top-left to bottom-right
+
+    return primary_diagonal_sum
+
 def slice_list(num_list, start, slice_length):
     """
     slice_list() takes a list (num_list), an nonnegative integer (starting position), and another nonnegative integer (slice length)
@@ -160,6 +191,9 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    assert sum_of_diagonal([[]]) == -1, "Test with an empty matrix failed"
+    assert sum_of_diagonal([[1, 2], [3, 4], [5, 6]]) == -2, "Test with a non-square matrix (more rows) failed"
+    assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing
     assert remove_dictionary_items({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}) == {
         'John': '0123456789', 'Jane': '1234567890'}
     assert remove_dictionary_items({'Support': '1AF567^901', 'Service': '0123456789'}) == {

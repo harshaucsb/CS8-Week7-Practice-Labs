@@ -38,6 +38,7 @@ fun_names_dict = {
     'remove_dictionary_items': 'remove_dictionary_items',
     'get_maximum_odd': 'get_maximum_odd',
     'modify_list': 'modify_list',
+    'sum_of_diagonal': 'sum_of_diagonal',
     'slice_list': 'slice_list',
     'calculate_average_scores': 'calculate_average_scores'
 }
@@ -66,6 +67,7 @@ test_files = ['__init__.py', 'requirements.txt', 'run_autograder',
               "test_dictionary_values.py",
               "test_maximum_odd.py",
               "test_modify_list.py",
+              "test_sum_of_diagonal.py",
               "test_dictionary_remove.py"
               "test_list_slicing.py",
               "test_calculate_average_scores.py",
