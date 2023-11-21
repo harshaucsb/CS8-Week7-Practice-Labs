@@ -97,6 +97,47 @@ def modify_list(num_list):
             return f'List contains type that is not an integer at position {i}'
     return num_list
 
+def shift_list(my_list, direction, step):
+    """
+    Shifts the elements of a given list to the left or right by a specified number of steps.
+
+    Parameters:
+    my_list (list): The list whose elements are to be shifted. Return -1 if the list is empty
+    d (int): The direction of the shift (-1 for left, 1 for right). Return -2 if d is not -1 or 1
+    s (int): The number of steps to shift the elements. Return -3 if d is not an integer.
+
+    Returns:
+    list: A new list with the elements shifted in the specified direction by the specified number of steps.
+
+    Raises:
+    ValueError: If the direction is not -1 or 1.
+
+    Example:
+    >>> shift_list([1, 2, 3, 4, 5], 1, 2)
+    [4, 5, 1, 2, 3]
+    """
+    if not my_list:
+        return -1
+    if direction not in [-1, 1]:
+        return -2
+    if not isinstance(step, int):
+        return -3 
+    
+    if step == 0:
+        return my_list
+
+    n = len(my_list)
+    shifted_list = [None] * n
+    step = step % n
+
+    for i, element in enumerate(my_list):
+        if direction == -1:  # Shift left
+            shifted_list[i - step] = element
+        elif direction == 1:  # Shift right
+            shifted_list[(i + step) % n] = element
+        
+    return shifted_list
+
 def sum_of_diagonal(matrix):
     """
     The function takes a 2D list (matrix) as input, where each sublist represents a row of the matrix.
@@ -220,7 +261,7 @@ def calculate_class_midterm_average(grades_dict):
     avg_midterm_score = sum(midterm_scores) / len(midterm_scores)
     return avg_midterm_score
 
-  
+
 if __name__ == "__main__":
     ### Write 3 assert statements
     ### to test the function
@@ -230,12 +271,21 @@ if __name__ == "__main__":
     assert get_maximum_odd([7, 40, 33, 56, 98]) == 33
     assert get_maximum_odd([2, 22, 10, 56, 90]) == -99
     assert get_maximum_odd([]) == -1
+
     assert modify_list([1, 2, 3, 4, 5]) == [1, 3, 5, 7, 9]
     assert modify_list([1]) == [1]
     assert modify_list(['hello', 10]) == 'List contains type that is not an integer at position 0'
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    
+    assert shift_list([], 1, 5) == -1
+    assert shift_list(["Jason", 'Kelly', 'Tom'], 0, 1) == -2
+    assert shift_list([1, 2, 3.5, 4, 5], 1, 2.1) == -3
+    assert shift_list(["Jason", 'Kelly', 'Tom'], -1, 2) == ['Tom', "Jason", 'Kelly']
+    assert shift_list([1, 2, 3.5, 4, 5], 1, 2) == [4, 5, 1, 2, 3.5]
+    assert shift_list(["banana", "apple", "pineapple", "pear", "peach"], 1, 7) == ["pear", "peach", "banana", "apple", "pineapple"]
+
     assert sum_of_diagonal([[]]) == -1, "Test with an empty matrix failed"
     assert sum_of_diagonal([[1, 2], [3, 4], [5, 6]]) == -2, "Test with a non-square matrix (more rows) failed"
     assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing
