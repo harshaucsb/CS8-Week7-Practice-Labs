@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d1b7d43-c59f-42c5-ae94-d0054826120c" name="Changes" comment="">
+    <list default="true" id="4d1b7d43-c59f-42c5-ae94-d0054826120c" name="Changes" comment="Add Lab practice for 7.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/correct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_sum_of_diagonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_sum_of_diagonal.py" afterDir="false" />
+    <list default="true" id="4d1b7d43-c59f-42c5-ae94-d0054826120c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/tests/test_dictionary_remove.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_dictionary_remove.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,14 +24,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2YC06FsLsMIemf4U15FZXwK7dcA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,8 +46,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Eshas__branch",
+    "git-widget-placeholder": "7.5-list-nesting-Zifeng-Zhang",
     "last_opened_file_path": "/Users/eshagupta/Documents/GitHub/CS8-Week7-Practice-Labs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -49,17 +59,18 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="correct" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CS8-Week7-Practice-Labs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\kimia\PycharmProjects\pythonProject\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.9 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/correct.py" />
       <option name="PARAMETERS" value="" />
@@ -99,7 +110,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Lab practice for 7.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Lab practice for 7.5" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CS8_Week7_Practice_Labs$correct.coverage" NAME="correct Coverage Results" MODIFIED="1700087757646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/CS8_Week7_Practice_Labs$correct.coverage" NAME="correct Coverage Results" MODIFIED="1700175712090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
