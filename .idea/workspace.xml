@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/correct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_sum_of_diagonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_sum_of_diagonal.py" afterDir="false" />
+    <list default="true" id="4d1b7d43-c59f-42c5-ae94-d0054826120c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/tests/test_dictionary_remove.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_dictionary_remove.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "7.5-list-nesting-Zifeng-Zhang",
     "last_opened_file_path": "/Users/eshagupta/Documents/GitHub/CS8-Week7-Practice-Labs",
@@ -56,17 +59,18 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="correct" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CS8-Week7-Practice-Labs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\kimia\PycharmProjects\pythonProject\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.9 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/correct.py" />
       <option name="PARAMETERS" value="" />
