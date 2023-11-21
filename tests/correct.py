@@ -304,7 +304,7 @@ if __name__ == "__main__":
 
     assert sum_of_diagonal([[]]) == -1, "Test with an empty matrix failed"
     assert sum_of_diagonal([[1, 2], [3, 4], [5, 6]]) == -2, "Test with a non-square matrix (more rows) failed"
-    assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing
+    assert sum_of_diagonal([[-1, -2, -3], [-4, -5, -6], [-7, -8, -9]]) == -15, "Test with a matrix containing"
     assert remove_dictionary_items({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}) == {
         'John': '0123456789', 'Jane': '1234567890'}
     assert remove_dictionary_items({'Support': '1AF567^901', 'Service': '0123456789'}) == {
