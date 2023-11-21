@@ -32,6 +32,32 @@ def get_dictionary_value(options, option):
             return_str += key + ', '
         return return_str[:-2]
 
+def remove_dictionary_items(dict):
+    """
+    remove_dictionary_items() takes a dictionary (dict) as input and removes
+    any items where the values are not valid phone numbers. A valid phone number
+    is defined as a string of 10 digits with no other characters.
+    The function first check if the dictionary is empty and if yes,
+    returns -1. If the dictionary is not empty, now the function checks for
+    the items with invalid phone number format and removes them from
+    the dict and returns the new updated dictionary. If there is no invalid value, returns the dict.
+    Examples:
+    - If dict is {'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'},
+      the function returns {'John': '0123456789', 'Jane': '1234567890'}.
+    - If dict is {'Support': '1AF567^901', 'Service': '0123456789'},
+      the function returns {'Service': '0123456789'}.
+    Make sure to have different assert statements to test the function
+    than the ones provided above. Note: Please refer to Zybooks 7.11 for more information on dictionaries.
+    """
+    if len(dict) == 0:
+        return -1
+    keys_to_remove = [key for key, value in dict.items() if
+                      not (isinstance(value, str) and value.isdigit() and len(value) == 10)]
+    for key in keys_to_remove:
+        dict.pop(key)
+    return dict
+
+
 def get_maximum_odd(values):
     """
     get_maximum_odds() takes a list (values) of  postive integers and returns
@@ -134,6 +160,12 @@ if __name__ == "__main__":
     assert modify_list([]) == -1
     assert modify_list([0.1, 'Kelly', 'h']) == 'List contains type that is not an integer at position 0'
     assert modify_list([1, 2, 3.5, 4, 5]) == 'List contains type that is not an integer at position 2'
+    assert remove_dictionary_items({'John': '0123456789', 'Doe': '987654321', 'Jane': '1234567890'}) == {
+        'John': '0123456789', 'Jane': '1234567890'}
+    assert remove_dictionary_items({'Support': '1AF567^901', 'Service': '0123456789'}) == {
+        'Service': '0123456789'}
+    assert remove_dictionary_items({'a': 1234567890, 'b': '1234567890'}) == {'b': '1234567890'}
+    assert remove_dictionary_items({}) == -1
     assert slice_list([1, 2, 3, 4, 5], 3, 2) == [4,5]
     assert slice_list([1, 2, 3, 4, 5], 3, 0) == []
     assert slice_list([], -6, 2) == -1
